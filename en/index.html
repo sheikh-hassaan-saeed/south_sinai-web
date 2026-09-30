@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Sinai Backgammon Tournament 2026</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
+                    colors: {
+                        navy: '#0E1A2B', sand: '#D8CFC4', teal: '#0F4C5C', gold: '#B89B5E',
+                        clay: '#9C5A3C', charcoal: '#2B2B2B', grey: '#6E6E6E', ivory: '#F4F1EC',
+                        terracotta: '#E07856', coral: '#FF6B6B', sunset: '#FF9A56', turquoise: '#1FB6C6',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dot-pattern {
+            background-image: radial-gradient(#FF9A56 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: currentColor;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .clip-triangle {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .clip-triangle-inv {
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+        }
+
+        /* Mobile responsive overrides */
+        @media (max-width: 768px) {
+            .banner-bg-image {
+                display: none !important;
+            }
+
+            .desktop-coaching-image {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-coaching-cards {
+                display: none !important;
+            }
+        }
+
+        /* Hide Google Translate bar and branding completely */
+        .goog-te-banner-frame,
+        .goog-te-balloon-frame,
+        div#goog-gt-tt,
+        div#goog-gt-,
+        .goog-te-ftab,
+        .skiptranslate iframe {
+            display: none !important;
+        }
+
+        body {
+            top: 0 !important;
+            position: static !important;
+        }
+
+        .skiptranslate {
+            display: none !important;
+        }
+
+        /* Language Dropdown Styles */
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-btn {
+
+            color: white;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 700;
+            border: 2px solid #E07856;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .language-btn:hover {
+            background-color: #E07856;
+            border-color: #FF9A56;
+        }
+
+        .language-btn svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .language-btn.active svg {
+            transform: rotate(180deg);
+        }
+
+        .language-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background-color: white;
+            border: 2px solid #E07856;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            min-width: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .language-menu.active {
+            display: block;
+        }
+
+        .language-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: #2B2B2B;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #F4F1EC;
+        }
+
+        .language-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .language-menu a:hover {
+            background-color: #E07856;
+            color: white;
+        }
+
+        .language-menu a.active {
+            background-color: #0F4C5C;
+            color: white;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .language-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .language-menu {
+                min-width: 180px;
+                max-height: 300px;
+            }
+
+            .language-menu a {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+        }
+
+        /* Scrollbar styling */
+        .language-menu::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .language-menu::-webkit-scrollbar-track {
+            background: #F4F1EC;
+        }
+
+        .language-menu::-webkit-scrollbar-thumb {
+            background: #E07856;
+            border-radius: 3px;
+        }
+
+        .language-menu::-webkit-scrollbar-thumb:hover {
+            background: #FF9A56;
+        }
+    </style>
+
+    <style>
+        body {
+            top: 0 !important;
+            position: static !important;
+        }
+
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        .skiptranslate {
+            display: none !important;
+        }
+
+        iframe.goog-te-menu-frame {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-ivory font-sans m-0">
+
+    <script>
+        var s = document.createElement('style');
+        s.innerHTML = 'body{top:0!important;position:static!important}.goog-te-banner-frame,.skiptranslate,iframe.goog-te-menu-frame{display:none!important}';
+        document.head.appendChild(s);
+    </script>
+
+    <!-- Header -->
+    <header class="bg-teal text-ivory py-4 top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 sm:px-6 flex justify-between items-center">
+            <div class="flex items-center gap-3 sm:gap-5 cursor-pointer">
+                <div
+                    class="relative w-8 h-8 sm:w-10 sm:h-10 border-2 border-terracotta flex items-center justify-center">
+                    <div class="w-5 h-5 sm:w-6 sm:h-6 bg-terracotta rotate-45 flex items-center justify-center">
+                        <div class="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_8px_white]"></div>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        class="text-xs sm:text-[18px] uppercase tracking-[0.2em] sm:tracking-[0.4em] text-terracotta font-black mt-1">
+                        Backgammon</p>
+                </div>
+            </div>
+            <nav class="hidden xl:flex gap-5 items-center text-[15px]">
+                <a href="index.html" class="hover:text-terracotta transition">Home</a>
+                <div class="relative" id="formatDropdown">
+                    <button class="hover:text-terracotta transition flex items-center gap-1 cursor-pointer"
+                        id="formatBtn">Format
+                        <svg class="w-4 h-4 transition-transform" id="formatArrow" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                        </svg></button>
+                    <div class="hidden absolute top-full left-0 bg-teal mt-2 py-2 shadow-xl min-w-[200px] z-50 border-t-2 border-terracotta"
+                        id="formatMenu">
+                        <a href="masters.html" class="block px-6 py-3 hover:bg-gold transition text-ivory">The Main</a>
+                        <a href="intermediate.html"
+                            class="block px-6 py-3 hover:bg-terracotta transition text-ivory">The Cubeless Cup</a>
+                        <a href="schedule.html"
+                            class="block px-6 py-3 hover:bg-ivory transition hover:text-navy text-ivory">Schedule</a>
+                    </div>
+                </div>
+                <div class="relative" id="locationDropdown">
+                    <button class="hover:text-terracotta transition flex items-center gap-1 cursor-pointer"
+                        id="locationBtn">Location
+                        <svg class="w-4 h-4 transition-transform" id="locationArrow" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                        </svg></button>
+                    <div class="hidden absolute top-full left-0 bg-teal mt-2 py-2 shadow-xl min-w-[200px] z-50 border-t-2 border-terracotta"
+                        id="locationMenu">
+                        <a href="location.html#big-dune-camp"
+                            class="block px-6 py-3 hover:bg-gold transition text-ivory">Big Dune Camp</a>
+                        <a href="location.html#nuweiba"
+                            class="block px-6 py-3 hover:bg-terracotta transition text-ivory">Nuweiba</a>
+                        <a href="dining.html"
+                            class="block px-6 py-3 hover:bg-white transition hover:text-navy text-ivory">Local
+                            Restaurants</a>
+                    </div>
+                </div>
+                <a href="rules.html" class="hover:text-terracotta transition">Rules</a>
+                <a href="side-events.html" class="hover:text-terracotta transition">Side Events</a>
+                <a href="players.html" class="hover:text-terracotta transition">Players</a>
+                <a href="coaching.html" class="hover:text-terracotta transition">Coaching</a>
+                <a href="contact.html" class="hover:text-terracotta transition">Contact</a>
+                <a href="registration.html"
+                    class="bg-terracotta text-white px-5 py-2 text-[12px] font-black uppercase tracking-[0.2em] hover:bg-white hover:text-navy transition-all shadow-xl whitespace-nowrap">Register</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <!-- Language Dropdown -->
+                <div class="language-dropdown">
+                    <button class="language-btn" id="languageBtn">
+                        <span id="currentLang" class="notranslate" translate="no">Language</span>
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                        </svg>
+                    </button>
+
+                    <div class="language-menu" id="languageMenu">
+                        <a href="#" class="notranslate" translate="no" data-lang="en">English</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ar">Arabic (العربية)</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="iw">Hebrew (עברית)</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="af">Afrikaans</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="sq">Albanian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="am">Amharic</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="hy">Armenian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="az">Azerbaijani</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="eu">Basque</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="be">Belarusian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="bn">Bengali</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="bs">Bosnian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="bg">Bulgarian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ca">Catalan</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ceb">Cebuano</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="zh-CN">Chinese (Simplified)</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="zh-TW">Chinese (Traditional)</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="co">Corsican</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="hr">Croatian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="cs">Czech</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="da">Danish</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="nl">Dutch</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="eo">Esperanto</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="et">Estonian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="fi">Finnish</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="fr">French</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="fy">Frisian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="gl">Galician</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ka">Georgian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="de">German</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="el">Greek</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="gu">Gujarati</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ht">Haitian Creole</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ha">Hausa</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="haw">Hawaiian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="hi">Hindi</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="hmn">Hmong</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="hu">Hungarian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="is">Icelandic</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ig">Igbo</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="id">Indonesian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ga">Irish</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="it">Italian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ja">Japanese</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="jv">Javanese</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="kn">Kannada</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="kk">Kazakh</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="km">Khmer</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="rw">Kinyarwanda</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ko">Korean</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ku">Kurdish</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ky">Kyrgyz</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="lo">Lao</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="lv">Latvian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="lt">Lithuanian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="lb">Luxembourgish</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="mk">Macedonian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="mg">Malagasy</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ms">Malay</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ml">Malayalam</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="mt">Maltese</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="mi">Maori</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="mr">Marathi</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="mn">Mongolian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="my">Myanmar (Burmese)</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ne">Nepali</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="no">Norwegian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ny">Nyanja (Chichewa)</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="or">Odia (Oriya)</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ps">Pashto</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="fa">Persian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="pl">Polish</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="pt">Portuguese</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="pa">Punjabi</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ro">Romanian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ru">Russian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="sm">Samoan</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="gd">Scots Gaelic</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="sr">Serbian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="st">Sesotho</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="sn">Shona</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="sd">Sindhi</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="si">Sinhala (Sinhalese)</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="sk">Slovak</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="sl">Slovenian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="so">Somali</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="es">Spanish</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="su">Sundanese</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="sw">Swahili</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="sv">Swedish</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="tl">Tagalog (Filipino)</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="tg">Tajik</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ta">Tamil</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="tt">Tatar</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="te">Telugu</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="th">Thai</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="tr">Turkish</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="tk">Turkmen</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="uk">Ukrainian</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ur">Urdu</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="ug">Uyghur</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="uz">Uzbek</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="vi">Vietnamese</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="cy">Welsh</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="xh">Xhosa</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="yi">Yiddish</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="yo">Yoruba</a>
+                        <a href="#" class="notranslate" translate="no" data-lang="zu">Zulu</a>
+                    </div>
+                </div>
+                <!-- ADD THIS HAMBURGER BUTTON -->
+                <button id="mobileMenuBtn"
+                    class="xl:hidden hamburger w-8 h-8 flex flex-col justify-center items-center gap-1.5 text-terracotta">
+                    <span class="w-6"></span>
+                    <span class="w-6"></span>
+                    <span class="w-6"></span>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu"
+            class="mobile-menu fixed top-0 right-0 h-full w-80 bg-teal shadow-2xl z-50 xl:hidden overflow-y-auto">
+            <div class="flex flex-col h-full">
+                <div class="flex justify-end p-6"><button id="closeMobileMenu"
+                        class="text-terracotta text-3xl font-bold">&times;</button></div>
+                <nav class="flex flex-col px-6 space-y-4 pb-6">
+                    <a href="index.html"
+                        class="text-ivory hover:text-terracotta transition py-3 border-b border-ivory/20">Home</a>
+                    <div class="border-b border-ivory/20 pb-3">
+                        <p class="text-terracotta font-bold mb-2">Format</p>
+                        <a href="masters.html" class="block text-ivory hover:text-terracotta transition py-2 pl-4">The
+                            Main</a>
+                        <a href="intermediate.html"
+                            class="block text-ivory hover:text-terracotta transition py-2 pl-4">The Cubeless Cup</a>
+                        <a href="schedule.html"
+                            class="block text-ivory hover:text-terracotta transition py-2 pl-4">Schedule</a>
+                    </div>
+                    <div class="border-b border-ivory/20 pb-3">
+                        <p class="text-terracotta font-bold mb-2">Location</p>
+                        <a href="location.html#big-dune-camp"
+                            class="block text-ivory hover:text-terracotta transition py-2 pl-4">Big Dune Camp</a>
+                        <a href="location.html#nuweiba"
+                            class="block text-ivory hover:text-terracotta transition py-2 pl-4">Nuweiba</a>
+                        <a href="dining.html" class="block text-ivory hover:text-terracotta transition py-2 pl-4">Local
+                            Restaurants</a>
+                    </div>
+                    <a href="rules.html"
+                        class="text-ivory hover:text-terracotta transition py-3 border-b border-ivory/20">Rules</a>
+                    <a href="side-events.html"
+                        class="text-ivory hover:text-terracotta transition py-3 border-b border-ivory/20">Side
+                        Events</a>
+                    <a href="players.html"
+                        class="text-ivory hover:text-terracotta transition py-3 border-b border-ivory/20">Players</a>
+                    <a href="coaching.html"
+                        class="text-ivory hover:text-terracotta transition py-3 border-b border-ivory/20">Coaching</a>
+                    <a href="contact.html"
+                        class="text-ivory hover:text-terracotta transition py-3 border-b border-ivory/20">Contact</a>
+                    <a href="registration.html"
+                        class="bg-terracotta text-white px-6 py-3 text-center font-black uppercase tracking-wider hover:bg-sunset transition mt-4">Register</a>
+                </nav>
+            </div>
+        </div>
+        <div id="mobileMenuOverlay" class="hidden fixed inset-0 bg-black/50 z-40 xl:hidden"></div>
+    </header>
+
+    <!-- Banner Section - Desktop version -->
+    <section class="hidden md:block relative w-full h-[30rem] overflow-hidden">
+        <img src="/assets/images/test-Photoroom.png" alt="Banner" class="w-full h-full object-cover">
+        <div class="absolute bottom-[-340px] right-[-200px] w-[1150px] h-[800px] z-10">
+            <img src="/assets/images/b-Photoroom.png" alt="Backgammon Board" class="w-full h-full object-contain"
+                style="filter: contrast(1.2) saturate(1.2) brightness(1.05) drop-shadow(10px 10px 25px rgba(0,0,0,0.4));">
+        </div>
+        <div class="absolute top-0 left-8 z-20 max-w-2xl mt-0">
+            <div
+                class="absolute mt-4 inset-0 bg-gradient-to-r from-ivory/100 via-ivory/90 to-transparent -z-10 blur-2xl w-[150%]">
+            </div>
+            <div class="p-8 mt-[3rem]">
+                <div class="mb-2 flex items-center -ml-4">
+                    <div class="relative flex items-center gap-4">
+                        <span
+                            class="text-coral/90 bg-white/30 font-black text-[11px] md:text-[19px] uppercase tracking-[0.2em] leading-none px-3 py-1 rounded inline-flex items-center">
+
+                            <img src="/assets/images/quotation-1.jpg" alt=""
+                                class="relative -top-[1px] w-[0.5rem] mr-[0.2rem] h-[0.5rem] md:w-[0.6rem] md:h-[0.9rem]">
+
+                            Winter Warmer
+
+                            <img src="/assets/images/quotation-2.jpg" alt=""
+                                class="relative -top-[1.9px] -left-[2px] w-[0.5rem] h-[0.5rem] ml-[0.1em] md:w-[0.5rem] md:h-[0.8rem]">
+
+
+                        </span>
+
+                        <div class="flex items-center gap-4">
+                            <div class="h-[2px] w-28 bg-gradient-to-r from-terracotta to-transparent"></div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="mb-4">
+                    <span class="block text-6xl font-serif font-bold text-teal mb-2 whitespace-nowrap"
+                        style="text-shadow: 2px 2px 6px rgba(255,255,255,0.8), 1px 1px 3px rgba(0,0,0,0.3);">South
+                        Sinai</span>
+                    <span class="block text-6xl font-serif font-bold italic text-teal mb-2 whitespace-nowrap"
+                        style="text-shadow: 2px 2px 6px rgba(255,255,255,0.8), 1px 1px 3px rgba(0,0,0,0.3);">Backgammon
+                        Tournament</span>
+                    <div class="relative inline-block">
+                        <img src="/assets/images/brush-Photoroom.png" alt=""
+                            class="absolute inset-0 w-full h-full object-cover invert opacity-95 scale-x-125">
+                        <div
+                            class="relative text-gold font-black text-5xl md:text-4xl tracking-[0.2rem] italic px-6 py-3 z-10 [-webkit-text-stroke:1px_black] mr-8 mb-2">
+                            11/11/26 — 18/11/26</div>
+                    </div>
+                </h1>
+                <div class="flex items-center gap-4">
+                    <div class="h-[2px] w-28 bg-gradient-to-r from-terracotta to-transparent"></div>
+                </div>
+                <div class="flex flex-wrap mt-4 items-center gap-8">
+                    <a href="registration.html"
+                        class="bg-terracotta text-white px-10 py-3 font-black uppercase tracking-widest text-sm hover:bg-teal hover:textwhite transition-all shadow-xl">Secure
+                        Registration</a>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Section - Mobile version -->
+    <section class="md:hidden relative w-full min-h-[400px] overflow-hidden bg-cover bg-center"
+        style="background-image: url('/assets/images/test-Photoroom.png');">
+        <div class="absolute bottom-[-280px] right-[-180px] w-[500px] h-[600px] z-10">
+            <img src="/assets/images/b-Photoroom.png" alt="Backgammon Board" class="w-full h-full object-contain"
+                style="filter: contrast(1.2) saturate(1.2) brightness(1.05) drop-shadow(10px 10px 25px rgba(0,0,0,0.4));">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-ivory/80 to-ivory/30"></div>
+        <div class="relative z-10 p-6 pt-12">
+            <div class="mb-4 text-center">
+                <span
+                    class="text-coral/90 bg-white/50 font-black text-[10px] uppercase tracking-widest px-3 py-1 rounded inline-flex items-center gap-2">
+                    ' Winter Warmer '
+                </span>
+
+            </div>
+            <h1 class="mb-2 text-center">
+                <span class="block text-3xl font-serif font-bold text-teal mb-2"
+                    style="text-shadow: 2px 2px 6px rgba(255,255,255,0.8);">South Sinai</span>
+                <span class="block text-3xl font-serif font-bold italic text-teal mb-4"
+                    style="text-shadow: 2px 2px 6px rgba(255,255,255,0.8);">Backgammon Tournament</span>
+                <div class="relative inline-block">
+                    <img src="/assets/images/brush-Photoroom.png" alt=""
+                        class="absolute inset-0 w-[40rem] h-full object-cover invert opacity-95">
+                    <div
+                        class="relative text-gold font-black text-xl tracking-wider italic px-4 py-2 z-10 [-webkit-text-stroke:0.5px_black]">
+                        11/11/26 — 18/11/26</div>
+                </div>
+            </h1>
+            <div class="text-center">
+                <a href="registration.html"
+                    class="inline-block bg-terracotta text-white px-8 py-3 font-black uppercase tracking-wider text-xs hover:bg-sunset transition-all shadow-xl">Secure
+                    Registration</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Big Dune Camp -->
+    <section class="py-12 sm:py-16 md:py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 mt-6 sm:mt-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 items-center gap-8 sm:gap-12 lg:gap-16">
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-4 mb-6 sm:mb-8">
+                        <span class="w-8 sm:w-12 h-1.5 bg-terracotta"></span>
+                        <span
+                            class="font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-sm sm:text-md text-terracotta">The
+                            Destination</span>
+                    </div>
+                    <div class="relative">
+                        <div class="flex items-center gap-2 sm:gap-4 flex-wrap">
+                            <span
+                                class="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-teal tracking-[0.1rem] leading-none">BIG
+                                DUNE
+                                Camp</span>
+                            <span class="h-[2px] w-6 sm:w-8 bg-gold"></span>
+                            <span
+                                class="font-serif italic text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gold font-semibold tracking-[0.2rem] sm:tracking-[0.3rem]">Nuweiba</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="relative inline-block">
+                        <div class="absolute -inset-4 sm:-inset-6 bg-clay/5 rounded-sm border-2 border-gold"></div>
+                        <img src="/assets/images/big-dune-sign.webp" alt="Big Dune Camp"
+                            class="relative z-10 w-[250px] sm:w-[300px] md:w-[400px] h-auto shadow-2xl rounded-sm block">
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center space-y-4">
+                    <p class="text-navy/80 text-sm sm:text-base leading-relaxed text-justify">
+                        Welcome to <span class="text-terracotta font-semibold">Big Dune Camp</span>, a relaxed Bedouin
+                        camp on the shores of the Red Sea in Nuweiba, South Sinai — and a special place for backgammon
+                        players.
+                    </p>
+                    <p class="text-navy/80 text-sm sm:text-base leading-relaxed text-justify">
+                        With the mountains of Sinai behind you and the Red Sea in front, Big Dune offers the perfect
+                        setting to enjoy the game in a relaxed and friendly environment. Backgammon has a long and
+                        important tradition throughout the Middle East, and here you can enjoy both the familiar Western
+                        style of play and the local tradition of Tawla.
+                    </p>
+                    <p class="text-navy/80 text-sm sm:text-base leading-relaxed text-justify">
+                        Whether you are an experienced tournament player, a regular club player or simply enjoy a game
+                        over a coffee or a drink, the camp provides plenty of opportunities to meet other players, play
+                        matches and enjoy the social side of backgammon.
+                    </p>
+                    <p class="text-navy/80 text-sm sm:text-base leading-relaxed text-justify">
+                        Away from the board, there is plenty to enjoy. Swim in the Red Sea, explore the surrounding
+                        desert and mountains, relax by the beach, enjoy traditional food or simply sit and watch the
+                        spectacular Sinai sunsets.
+                    </p>
+                    <div class="h-px w-16 sm:w-24 bg-gold/50 mt-6 sm:mt-8"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sinai Experience -->
+    <section class="bg-[#fdfbf7] py-12 sm:py-16 md:py-24 border-y border-navy/10 overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 mt-4 sm:mt-[1rem]">
+            <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20">
+                <div class="flex items-center justify-center gap-4 mb-4 sm:mb-6">
+                    <span
+                        class="font-sans text-teal tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm md:text-[1.5rem] font-bold">Beyond
+                        the Board</span>
+                </div>
+                <h2 class="font-serif italic text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-navy leading-tight">The
+                    South Sinai Experience</h2>
+                <div class="mt-6 sm:mt-8 md:mt-10 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+                    <div class="hidden md:block h-0.5 w-16 bg-gold"></div>
+                    <p class="font-sans text-navy font-bold tracking-wide uppercase text-base sm:text-lg md:text-xl">
+                        Mountains<span class="text-terracotta mx-2 md:mx-4">•</span>Sea<span
+                            class="text-terracotta mx-2 md:mx-4">•</span>Silence<span
+                            class="text-terracotta mx-2 md:mx-4">•</span>Play
+                    </p>
+                    <div class="hidden md:block h-0.5 w-16 bg-gold"></div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 items-center justify-center">
+                <div
+                    class="group relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-2xl shadow-lg w-full">
+                    <img src="/assets/images/camel-hat.webp" alt="Nuweiba coast"
+                        class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div
+                    class="group relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-2xl shadow-lg w-full">
+                    <img src="/assets/images/sunset3.webp" alt="Sunset in Sinai"
+                        class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div
+                    class="group relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-2xl shadow-lg w-full">
+                    <img src="/assets/images/fish-image.webp" alt="Camp lifestyle"
+                        class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entry Level -->
+    <section class="bg-ivory py-12 sm:py-16 md:py-24 border-y border-navy/10">
+        <div class="container mx-auto px-4 sm:px-6 mb-[-40px] sm:mb-[-70px] mt-[-15px] sm:mt-[-30px]">
+            <div class="text-center max-w-5xl mx-auto">
+                <div class="p-4 sm:p-6 md:p-8 text-center">
+                    <h3 class="font-serif italic text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-teal leading-tight">
+                        Entry Level</h3>
+                </div>
+            </div>
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-12 sm:mb-16 md:mb-24">
+                    <div class="flex items-center justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
+                        <div class="h-[1.6px] w-[19rem] bg-gold"></div>
+                        <h4
+                            class="font-sans text-navy tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm md:text-xl font-black whitespace-nowrap">
+                            Choose Your Flight</h4>
+                        <div class="h-[1.6px] w-[19rem] bg-gold"></div>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+                        <div
+                            class="group flex flex-col bg-white p-4 sm:p-6 md:p-10 shadow-sm border border-navy/10 relative transition-transform duration-500 hover:-translate-y-2">
+                            <div class="relative z-10 flex flex-col h-full">
+                                <div class="mb-6 sm:mb-8">
+                                    <h3
+                                        class="text-2xl sm:text-3xl md:text-4xl font-sans tracking-[0.06em] font-black text-navy italic leading-none">
+                                        The Main Flight</h3>
+                                    <p class="mt-2 sm:mt-3 text-sm sm:text-base font-semibold text-navy/70">For
+                                        experienced and high-level competitors</p>
+                                </div>
+                                <ul
+                                    class="space-y-3 sm:space-y-4 mb-8 sm:mb-12 text-navy/80 flex-grow text-sm sm:text-md">
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span>Accommodation
+                                            price:
+                                            <strong class="text-teal font-black">£399</strong> (Registration Fee:
+                                            <strong class="text-terracotta font-black">FREE</strong> or <strong
+                                                class="text-teal font-black">£90</strong> to qualify for prize
+                                            money)</span></li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span><strong>2
+                                                Extra Nights & Meals FREE</strong> for players staying at camp</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span><strong>Trophies
+                                                to Winner & Runner-Up</strong></span></li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span><strong>Group
+                                                style followed by KOs</strong> for high-quality, balanced
+                                            pairings</span></li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span><strong>11
+                                                & 13 points match play</strong></span></li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span><strong>Doubling
+                                                cube & Crawford rule</strong> in play (<a href="rules.html"
+                                                class="text-teal hover:text-terracotta font-bold underline">see guide
+                                                page</a>)</span></li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span>Main
+                                            knockout plus consolation</span></li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span>Run
+                                            over <strong>4 days</strong> (14th to 17th)</span></li>
+                                </ul>
+                                <a href="registration.html"
+                                    class="mt-auto inline-block text-center text-white py-3 sm:py-4 px-4 sm:px-6 font-black text-sm sm:text-md uppercase tracking-widest bg-terracotta hover:bg-sunset transition-all duration-300">Register
+                                    for The Main →</a>
+                            </div>
+                        </div>
+                        <div
+                            class="group flex flex-col bg-white p-4 sm:p-6 md:p-10 shadow-sm border border-navy/10 relative transition-transform duration-500 hover:-translate-y-2">
+                            <div class="relative z-10 flex flex-col h-full">
+                                <div class="mb-6 sm:mb-8">
+                                    <h3
+                                        class="text-2xl sm:text-3xl md:text-4xl font-sans tracking-[0.02em] font-black text-navy italic leading-none">
+                                        The Cubeless Cup Flight</h3>
+                                    <p class="mt-2 sm:mt-3 text-sm sm:text-base font-semibold text-navy/70">Perfect for
+                                        competitive and improving players</p>
+                                </div>
+                                <ul
+                                    class="space-y-3 sm:space-y-4 mb-8 sm:mb-12 text-navy/80 flex-grow text-sm sm:text-md">
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span>Accommodation
+                                            price: <strong class="text-teal font-black">LE 13,500</strong> (Registration
+                                            Fee: <strong class="text-terracotta font-black">FREE</strong> or <strong
+                                                class="text-teal font-black">LE 2,800</strong> to qualify for prize
+                                            money)</span></li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span><strong>3
+                                                Extra Nights & Meals FREE</strong> for players staying at camp</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span><strong>STAY
+                                                an extra week before or after</strong> for £150 / LE 7,500</span></li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span><strong>Trophies
+                                                to Winner & Runner-Up</strong></span></li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span>Structured
+                                            <strong>group stage + knockout</strong> format</span></li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span><strong>Minimum
+                                                7 matches guaranteed</strong></span></li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span>Single
+                                            point games</span></li>
+                                    <li class="flex items-start gap-2 sm:gap-3"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 flex-shrink-0"></span><span>Run
+                                            over <strong>3 days</strong> (12th to 14th)</span></li>
+                                </ul>
+                                <a href="registration.html"
+                                    class="mt-auto inline-block text-center bg-terracotta text-white py-3 sm:py-4 px-4 sm:px-6 font-black text-sm sm:text-md uppercase tracking-widest hover:bg-sunset transition-all duration-300">Register
+                                    for The Cubeless Cup →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coaching - Desktop -->
+    <div class="desktop-coaching-image text-center mt-[4rem]">
+        <h3 class="text-4xl md:text-7xl font-serif text-navy italic leading-tight mb-6 text-center">Coaching & Learning
+        </h3>
+        <div class="flex items-center justify-center gap-6 mb-2">
+            <div class="h-[1.6px] w-[16rem] bg-gold"></div>
+            <p class="text-navy/90 text-xl whitespace-nowrap px-4 text-center">Consistent progress moves you closer to
+                mastery</p>
+            <div class="h-[1.6px] w-[16rem] bg-gold"></div>
+        </div>
+        <div class="relative justify-center mb-60 items-center">
+            <img src="/assets/images/backgammon.png" class="w-[96rem] h-[60rem] mx-auto" />
+            <div class="absolute top-[11rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                <p class="text-xl text-teal drop-shadow-lg"><strong>Share your knowledge</strong> or learn from others
+                </p>
+            </div>
+            <div class="absolute top-[15rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                <p class="text-xl text-teal drop-shadow-lg">Coaches welcome to offer <strong>informal sessions</strong>
+                </p>
+            </div>
+            <div class="absolute top-[19rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                <p class="text-xl text-teal drop-shadow-lg">Open to players of <strong>all standards and experience
+                        levels</strong></p>
+            </div>
+            <div class="absolute top-[23rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                <p class="text-xl text-teal drop-shadow-lg">Focus on <strong>technical skills and match play</strong>
+                </p>
+            </div>
+            <div class="absolute top-[40rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                <p class="text-xl text-teal drop-shadow-lg">Learn to think like a <strong>winner</strong></p>
+            </div>
+            <div class="absolute top-[44rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                <p class="text-xl text-teal drop-shadow-lg">Relaxed learning environment</p>
+            </div>
+            <div class="absolute top-[48rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                <p class="text-xl text-teal drop-shadow-lg">Flexible scheduling around play</p>
+            </div>
+            <div class="absolute top-[52rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                <p class="text-xl text-teal drop-shadow-lg">Build confidence</p>
+            </div>
+            <div class="absolute top-[63rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center"><a
+                    href="registration.html"
+                    class="inline-block text-center w-[40rem] bg-terracotta text-white py-3 px-8 font-bold text-sm uppercase tracking-wider hover:bg-teal transition-all duration-300">Enquire
+                    for Coaching →</a></div>
+        </div>
+    </div>
+
+    <!-- Coaching - Mobile -->
+    <div class="mobile-coaching-cards mb-12 text-center px-4 mt-8">
+        <h3 class="text-3xl font-serif text-navy italic leading-tight mb-4">Coaching & Learning</h3>
+        <p class="text-navy/90 text-base mb-8">Consistent progress moves you closer to mastery</p>
+        <div class="space-y-4 max-w-2xl mx-auto">
+            <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-teal">
+                <p class="text-teal text-sm"><strong>Share your knowledge</strong> or learn from others</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-teal">
+                <p class="text-teal text-sm">Coaches welcome to offer <strong>informal sessions</strong></p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-teal">
+                <p class="text-teal text-sm">Open to players of <strong>all standards and experience levels</strong></p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-teal">
+                <p class="text-teal text-sm">Focus on <strong>technical skills and match play</strong></p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-teal">
+                <p class="text-teal text-sm">Learn to think like a <strong>winner</strong></p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-teal">
+                <p class="text-teal text-sm">Relaxed learning environment</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-teal">
+                <p class="text-teal text-sm">Flexible scheduling around play</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-teal">
+                <p class="text-teal text-sm">Build confidence</p>
+            </div>
+            <a href="registration.html"
+                class="block w-full bg-terracotta text-white py-3 px-6 font-bold text-sm uppercase tracking-wider hover:bg-teal transition-all duration-300 text-center rounded-lg mt-6">Enquire
+                for Coaching →</a>
+        </div>
+    </div>
+
+    <!-- Prize Money -->
+    <div class="w-full max-w-5xl mx-auto mt-8 sm:mt-12 mb-16 sm:mb-20 md:mb-[10rem] px-4 sm:px-6">
+        <div class="relative bg-white p-6 sm:p-8 md:p-10 border-4 border-gold shadow-2xl overflow-hidden">
+            <div class="absolute inset-0 opacity-10"><img src="/assets/images/prize-money.jpg" alt=""
+                    class="w-full h-full object-cover"></div>
+            <div class="relative z-10 mb-6 sm:mb-8 text-center">
+                <div class="flex items-center justify-center gap-2 sm:gap-4 mb-3 sm:mb-4 flex-wrap">
+                    <h3
+                        class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-black italic text-terracotta">
+                        Prize Money</h3>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <span class="text-xl sm:text-2xl text-gold">★</span>
+                    <div class="w-12 sm:w-16 h-1 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+                    <span class="text-gold text-base sm:text-lg">£££</span>
+                    <div class="w-12 sm:w-16 h-1 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+                    <span class="text-xl sm:text-2xl text-gold">★</span>
+                </div>
+                <p class="text-sm font-semibold text-grey mt-2">(registration fee to be paid to qualify)</p>
+            </div>
+            <div class="space-y-4 sm:space-y-6 relative z-10">
+                <!-- Trophy Section -->
+                <div
+                    class="bg-gradient-to-b from-transparent to-gold/5 p-4 sm:p-6 text-center border-2 border-gold rounded-xl shadow-lg mb-8">
+                    <div class="flex flex-col items-center justify-center gap-4">
+                        <img src="/assets/images/gold_trophy.jpg" alt="Gold Trophy"
+                            class="h-32 w-32 object-cover rounded-full shadow-md border-4 border-gold/30">
+                        <h4 class="text-xl sm:text-2xl md:text-3xl font-serif italic text-navy font-black">
+                            <span class="text-gold">Trophies</span> for winners and runners up
+                        </h4>
+                    </div>
+                </div>
+                <!-- Winner Prize -->
+                <div
+                    class="bg-gradient-to-r from-gold/10 to-transparent p-4 sm:p-6 border-l-4 sm:border-l-8 border-gold">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <div>
+                            <span
+                                class="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-wide text-navy block">WINNER
+                                X6</span>
+                        </div>
+                        <h4 class="text-xl sm:text-2xl font-bold text-grey">(Registration Fee)</h4>
+                    </div>
+                </div>
+                <!-- Runner Up Prize -->
+                <div
+                    class="bg-gradient-to-r from-gold/10 to-transparent p-4 sm:p-6 border-l-4 sm:border-l-8 border-gold">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <div>
+                            <span
+                                class="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-wide text-navy block">RUNNER
+                                UP - X3</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3rd Place Prize -->
+                <div
+                    class="bg-gradient-to-r from-teal/10 to-transparent p-4 sm:p-6 border-l-4 sm:border-l-8 border-teal">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <div>
+                            <span
+                                class="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-wide text-navy block">3RD-PLACE
+                                - X2</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Additional Details -->
+                <div
+                    class="bg-terracotta/10 p-4 sm:p-6 text-center border-l-4 sm:border-l-8 border-terracotta space-y-3">
+                    <p class="text-lg sm:text-xl font-bold text-navy uppercase tracking-wide">Up to 16 paying players
+                    </p>
+                    <p class="text-md sm:text-lg font-bold text-teal">32 - PRIZE Doubles</p>
+                    <p class="text-md sm:text-lg font-bold text-teal">64 - PRIZE Doubles again</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="w-full max-w-2xl mx-auto px-4 sm:px-6 flex justify-center -mt-2 mt-8 sm:mt-12 mb-16 sm:mb-20 md:mb-[10rem]">
+        <a href="flights.html" class="relative inline-block w-[400px] h-[400px] group">
+            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
+                <!-- Outer jagged star with navy blue gradient -->
+                <defs>
+                    <radialGradient id="navyGradient" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#0d2642;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#001529;stop-opacity:1" />
+                    </radialGradient>
+                </defs>
+                <path d="M 100,15 
+                     L 110,70 L 145,25 L 125,75 
+                     L 175,50 L 140,90 
+                     L 185,90 L 145,110 
+                     L 185,140 L 140,135 
+                     L 175,175 L 125,150 
+                     L 145,190 L 110,155 
+                     L 100,195 
+                     L 90,155 L 55,190 
+                     L 75,150 L 25,175 
+                     L 60,135 L 15,140 
+                     L 55,110 L 15,90 
+                     L 60,90 L 25,50 
+                     L 75,75 L 55,25 
+                     L 90,70 Z" class="transition-all duration-300"
+                    style="fill: url(#navyGradient); stroke: #D4915D; stroke-width: 3; filter: drop-shadow(0 0 10px rgba(30, 58, 95, 0.5));" />
+
+                <!-- Hover overlay -->
+                <path d="M 100,15 
+                     L 110,70 L 145,25 L 125,75 
+                     L 175,50 L 140,90 
+                     L 185,90 L 145,110 
+                     L 185,140 L 140,135 
+                     L 175,175 L 125,150 
+                     L 145,190 L 110,155 
+                     L 100,195 
+                     L 90,155 L 55,190 
+                     L 75,150 L 25,175 
+                     L 60,135 L 15,140 
+                     L 55,110 L 15,90 
+                     L 60,90 L 25,50 
+                     L 75,75 L 55,25 
+                     L 90,70 Z" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style="fill: teal; stroke: #D4915D; stroke-width: 3; filter: drop-shadow(0 0 10px rgba(42, 157, 143, 0.5));" />
+            </svg>
+
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span class="text-white mt-5 font-black text-3xl text-center whitespace-nowrap uppercase tracking-wider"
+                    style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
+                    UK <br />FLIGHT<br />DETAILS
+                </span>
+            </div>
+        </a>
+    </div>
+    <!-- CTA -->
+    <section
+        class="relative min-h-[400px] sm:min-h-[500px] md:min-h-[550px] flex items-center justify-center text-center overflow-hidden border-t border-b border-terracotta/20">
+        <img src="../assets/images/canoes at dusk.webp" alt="Dusk over South Sinai"
+            class="absolute inset-0 w-full h-full object-cover scale-105" />
+        <div class="absolute inset-0 bg-navy/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-navy/80 via-transparent to-navy/90"></div>
+        <div class="relative z-10 container mx-auto px-4 sm:px-6">
+            <div class="flex justify-center items-center gap-4 mb-4 sm:mb-6 opacity-80">
+                <div class="h-[1px] w-8 sm:w-12 bg-terracotta"></div>
+                <span class="text-terracotta text-lg sm:text-xl">✦</span>
+                <div class="h-[1px] w-8 sm:w-12 bg-terracotta"></div>
+            </div>
+            <h2
+                class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-ivory italic mb-4 sm:mb-6 leading-tight">
+                Secure Your <span class="text-terracotta">Position</span></h2>
+
+            <div class="relative inline-block group">
+                <div
+                    class="absolute inset-0 bg-terracotta blur-xl opacity-20 group-hover:opacity-40 transition-opacity">
+                </div>
+                <a href="registration.html"
+                    class="relative inline-block bg-terracotta text-white px-8 sm:px-10 md:px-12 py-4 sm:py-5 font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-xs sm:text-sm hover:bg-sunset transition-all duration-300 transform hover:-translate-y-1 shadow-2xl border border-white/10">Claim
+                    Your Seat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-teal text-ivory py-6 sm:py-8 border-t border-terracotta/20">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8">
+                <div
+                    class="font-serif text-xl sm:text-2xl md:text-[30px] italic text-terracotta text-center md:text-left">
+                    South Sinai Backgammon</div>
+                <div
+                    class="flex flex-wrap justify-center gap-6 sm:gap-10 text-xs sm:text-sm md:text-[16px] uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold">
+                    <a href="contact.html" class="hover:text-terracotta transition">Contact</a>
+                    <a href="rules.html" class="hover:text-terracotta transition">Rules</a>
+                    <a href="schedule.html" class="hover:text-terracotta transition">Schedule</a>
+                </div>
+                <p
+                    class="text-xs sm:text-sm md:text-[14px] uppercase tracking-widest text-white italic text-center md:text-right">
+                    &copy; 2026. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const formatDropdown = document.getElementById('formatDropdown'); const formatBtn = document.getElementById('formatBtn'); const formatMenu = document.getElementById('formatMenu'); const formatArrow = document.getElementById('formatArrow'); let isOpen = false; formatBtn.addEventListener('click', function (e) { e.stopPropagation(); isOpen = !isOpen; if (isOpen) { formatMenu.classList.remove('hidden'); formatArrow.style.transform = 'rotate(180deg)'; } else { formatMenu.classList.add('hidden'); formatArrow.style.transform = 'rotate(0deg)'; } }); formatDropdown.addEventListener('mouseenter', function () { if (!isOpen) { formatMenu.classList.remove('hidden'); formatArrow.style.transform = 'rotate(180deg)'; } }); formatDropdown.addEventListener('mouseleave', function () { if (!isOpen) { formatMenu.classList.add('hidden'); formatArrow.style.transform = 'rotate(0deg)'; } }); document.addEventListener('click', function (e) { if (!formatDropdown.contains(e.target)) { isOpen = false; formatMenu.classList.add('hidden'); formatArrow.style.transform = 'rotate(0deg)'; } });
+        const locationDropdown = document.getElementById('locationDropdown'); const locationBtn = document.getElementById('locationBtn'); const locationMenu = document.getElementById('locationMenu'); const locationArrow = document.getElementById('locationArrow'); let locationOpen = false; locationBtn.addEventListener('click', function (e) { e.stopPropagation(); locationOpen = !locationOpen; if (locationOpen) { locationMenu.classList.remove('hidden'); locationArrow.style.transform = 'rotate(180deg)'; } else { locationMenu.classList.add('hidden'); locationArrow.style.transform = 'rotate(0deg)'; } }); locationDropdown.addEventListener('mouseenter', function () { if (!locationOpen) { locationMenu.classList.remove('hidden'); locationArrow.style.transform = 'rotate(180deg)'; } }); locationDropdown.addEventListener('mouseleave', function () { if (!locationOpen) { locationMenu.classList.add('hidden'); locationArrow.style.transform = 'rotate(0deg)'; } }); document.addEventListener('click', function (e) { if (!locationDropdown.contains(e.target)) { locationOpen = false; locationMenu.classList.add('hidden'); locationArrow.style.transform = 'rotate(0deg)'; } });
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn'); const mobileMenu = document.getElementById('mobileMenu'); const closeMobileMenu = document.getElementById('closeMobileMenu'); const mobileMenuOverlay = document.getElementById('mobileMenuOverlay'); function openMobileMenu() { mobileMenu.classList.add('active'); mobileMenuOverlay.classList.remove('hidden'); mobileMenuBtn.classList.add('active'); document.body.style.overflow = 'hidden'; } function closeMobileMenuFunc() { mobileMenu.classList.remove('active'); mobileMenuOverlay.classList.add('hidden'); mobileMenuBtn.classList.remove('active'); document.body.style.overflow = ''; } mobileMenuBtn.addEventListener('click', function () { if (mobileMenu.classList.contains('active')) { closeMobileMenuFunc(); } else { openMobileMenu(); } }); closeMobileMenu.addEventListener('click', closeMobileMenuFunc); mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc); const mobileMenuLinks = mobileMenu.querySelectorAll('a'); mobileMenuLinks.forEach(link => { link.addEventListener('click', closeMobileMenuFunc); });
+    </script>
+
+    <script>
+        const languageBtn = document.getElementById('languageBtn');
+        const languageMenu = document.getElementById('languageMenu');
+        const currentLang = document.getElementById('currentLang');
+        const languageLinks = languageMenu.querySelectorAll('a');
+        const savedLang = localStorage.getItem('selectedLanguage');
+        const savedLangName = localStorage.getItem('selectedLanguageName');
+
+        languageBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            languageBtn.classList.toggle('active');
+            languageMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!languageBtn.contains(e.target) && !languageMenu.contains(e.target)) {
+                languageBtn.classList.remove('active');
+                languageMenu.classList.remove('active');
+            }
+        });
+
+        languageLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                const langName = this.textContent;
+                localStorage.setItem('selectedLanguage', lang);
+                localStorage.setItem('selectedLanguageName', langName);
+                localStorage.setItem('userChoseLang', 'true');
+                currentLang.textContent = langName;
+                languageLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                languageBtn.classList.remove('active');
+                languageMenu.classList.remove('active');
+                googleTranslateChange(lang);
+            });
+        });
+
+        function googleTranslateChange(lang) {
+            const check = setInterval(function () {
+                const select = document.querySelector('.goog-te-combo');
+                if (select) {
+                    clearInterval(check);
+                    select.value = lang;
+                    select.dispatchEvent(new Event('change'));
+                }
+            }, 100);
+            setTimeout(function () { clearInterval(check); }, 5000);
+        }
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                autoDisplay: false,
+                gaTrack: false
+            }, 'google_translate_element');
+
+            setTimeout(function () {
+
+                if (localStorage.getItem('userChoseLang') === 'true' && savedLang && savedLang !== 'en') {
+                    googleTranslateChange(savedLang);
+                    if (savedLangName) {
+                        currentLang.textContent = savedLangName;
+                        languageLinks.forEach(link => {
+                            if (link.getAttribute('data-lang') === savedLang) link.classList.add('active');
+                        });
+                    }
+                    return;
+                }
+
+                fetch('https://ipapi.co/json/')
+                    .then(function (res) { return res.json(); })
+                    .then(function (data) {
+                        const countryToLang = {
+                            'AE': 'ar', 'SA': 'ar', 'QA': 'ar', 'KW': 'ar', 'BH': 'ar',
+                            'EG': 'ar', 'JO': 'ar', 'LB': 'ar', 'IQ': 'ar', 'SY': 'ar',
+                            'OM': 'ar', 'YE': 'ar', 'LY': 'ar', 'TN': 'ar', 'DZ': 'ar',
+                            'MA': 'ar', 'SD': 'ar',
+                            'IL': 'iw',
+                            'RU': 'ru', 'FR': 'fr', 'DE': 'de', 'ES': 'es', 'PT': 'pt',
+                            'IT': 'it', 'NL': 'nl', 'PL': 'pl', 'TR': 'tr', 'IR': 'fa',
+                            'CN': 'zh-CN', 'TW': 'zh-TW', 'JP': 'ja', 'KR': 'ko',
+                            'IN': 'hi', 'PK': 'ur', 'BD': 'bn', 'ID': 'id', 'MY': 'ms',
+                            'TH': 'th', 'VN': 'vi', 'GR': 'el', 'UA': 'uk', 'RO': 'ro',
+                            'HU': 'hu', 'CZ': 'cs', 'SK': 'sk', 'HR': 'hr', 'RS': 'sr',
+                            'BG': 'bg', 'FI': 'fi', 'SE': 'sv', 'NO': 'no', 'DK': 'da',
+                        };
+
+                        const detectedLang = countryToLang[data.country_code];
+                        if (detectedLang) {
+                            const matchingLink = languageMenu.querySelector('[data-lang="' + detectedLang + '"]');
+                            if (matchingLink) {
+                                currentLang.textContent = matchingLink.textContent;
+                                languageLinks.forEach(l => l.classList.remove('active'));
+                                matchingLink.classList.add('active');
+                            }
+                            googleTranslateChange(detectedLang);
+                        }
+                    })
+                    .catch(function () { });
+            }, 1500);
+        }
+
+        window.addEventListener('load', function () {
+            const style = document.createElement('style');
+            style.innerHTML = '.goog-te-banner-frame.skiptranslate{display:none!important}body{top:0!important}';
+            document.head.appendChild(style);
+        });
+    </script>
+
+    <!-- Load Google Translate -->
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Hidden Google Translate Element -->
+    <div id="google_translate_element" style="display:none;"></div>
+
+</body>
+
+</html>

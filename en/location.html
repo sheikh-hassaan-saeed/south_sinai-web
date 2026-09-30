@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location - South Sinai Backgammon Tournament</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
+                    colors: {
+                        navy: '#0E1A2B', sand: '#D8CFC4', teal: '#0F4C5C', gold: '#B89B5E',
+                        clay: '#9C5A3C', charcoal: '#2B2B2B', grey: '#6E6E6E', ivory: '#F4F1EC',
+                        terracotta: '#E07856', sunset: '#FF9A56', turquoise: '#1FB6C6',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <style>
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: currentColor;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+
+            .section-title {
+                font-size: 2rem !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2rem !important;
+            }
+
+            .section-title {
+                font-size: 1.75rem !important;
+            }
+        }
+
+        /* Hide Google Translate bar and branding completely */
+        .goog-te-banner-frame,
+        .goog-te-balloon-frame,
+        div#goog-gt-tt,
+        div#goog-gt-,
+        .goog-te-ftab,
+        .skiptranslate iframe {
+            display: none !important;
+        }
+
+        body {
+            top: 0 !important;
+            position: static !important;
+        }
+
+        .skiptranslate {
+            display: none !important;
+        }
+
+        /* Language Dropdown Styles */
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-btn {
+
+            color: white;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 700;
+            border: 2px solid #E07856;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .language-btn:hover {
+            background-color: #FF9A56;
+            border-color: #FF9A56;
+        }
+
+        .language-btn svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .language-btn.active svg {
+            transform: rotate(180deg);
+        }
+
+        .language-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background-color: white;
+            border: 2px solid #E07856;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            min-width: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .language-menu.active {
+            display: block;
+        }
+
+        .language-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: #2B2B2B;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #F4F1EC;
+        }
+
+        .language-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .language-menu a:hover {
+            background-color: #E07856;
+            color: white;
+        }
+
+        .language-menu a.active {
+            background-color: #0F4C5C;
+            color: white;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .language-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .language-menu {
+                min-width: 180px;
+                max-height: 300px;
+            }
+
+            .language-menu a {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+        }
+
+        /* Scrollbar styling */
+        .language-menu::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .language-menu::-webkit-scrollbar-track {
+            background: #F4F1EC;
+        }
+
+        .language-menu::-webkit-scrollbar-thumb {
+            background: #E07856;
+            border-radius: 3px;
+        }
+
+        .language-menu::-webkit-scrollbar-thumb:hover {
+            background: #FF9A56;
+        }
+    </style>
+
+    <style>
+        body {
+            top: 0 !important;
+            position: static !important;
+        }
+
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        .skiptranslate {
+            display: none !important;
+        }
+
+        iframe.goog-te-menu-frame {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-sand font-sans">
+    <script>
+        var s = document.createElement('style');
+        s.innerHTML = 'body{top:0!important;position:static!important}.goog-te-banner-frame,.skiptranslate,iframe.goog-te-menu-frame{display:none!important}';
+        document.head.appendChild(s);
+    </script>
+    <main class="flex-grow">
+        <header id="nuweiba" class="bg-teal text-ivory py-4 top-0 z-50 shadow-lg">
+            <div class="container mx-auto px-4 sm:px-6 flex justify-between items-center">
+                <div class="flex items-center gap-3 sm:gap-5 cursor-pointer">
+                    <div
+                        class="relative w-8 h-8 sm:w-10 sm:h-10 border-2 border-terracotta flex items-center justify-center">
+                        <div class="w-5 h-5 sm:w-6 sm:h-6 bg-terracotta rotate-45 flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_8px_white]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p
+                            class="text-xs sm:text-[18px] uppercase tracking-[0.2em] sm:tracking-[0.4em] text-terracotta font-black mt-1">
+                            Backgammon</p>
+                    </div>
+                </div>
+                <nav class="hidden xl:flex gap-5 items-center text-[15px]">
+                    <a href="index.html" class="hover:text-terracotta transition">Home</a>
+                    <div class="relative" id="formatDropdown">
+                        <button class="hover:text-terracotta transition flex items-center gap-1 cursor-pointer"
+                            id="formatBtn">Format
+                            <svg class="w-4 h-4 transition-transform" id="formatArrow" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                            </svg></button>
+                        <div class="hidden absolute top-full left-0 bg-teal mt-2 py-2 shadow-xl min-w-[200px] z-50 border-t-2 border-terracotta"
+                            id="formatMenu">
+                            <a href="masters.html" class="block px-6 py-3 hover:bg-gold transition text-ivory">The
+                                Main</a>
+                            <a href="intermediate.html"
+                                class="block px-6 py-3 hover:bg-terracotta transition text-ivory">The Cubeless Cup</a>
+                            <a href="schedule.html"
+                                class="block px-6 py-3 hover:bg-ivory transition hover:text-navy text-ivory">Schedule</a>
+                        </div>
+                    </div>
+                    <div class="relative" id="locationDropdown">
+                        <button class="hover:text-terracotta transition flex items-center gap-1 cursor-pointer"
+                            id="locationBtn">Location
+                            <svg class="w-4 h-4 transition-transform" id="locationArrow" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                            </svg></button>
+                        <div class="hidden absolute top-full left-0 bg-teal mt-2 py-2 shadow-xl min-w-[220px] z-50 border-t-2 border-terracotta"
+                            id="locationMenu">
+                            <a href="#big-dune-camp" class="block px-6 py-3 hover:bg-gold transition text-ivory">Big
+                                Dune
+                                Camp</a>
+                            <a href="#nuweiba"
+                                class="block px-6 py-3 hover:bg-terracotta transition text-ivory">Nuweiba</a>
+                            <a href="dining.html"
+                                class="block px-6 py-3 hover:bg-ivory transition hover:text-navy text-ivory">Local
+                                Restaurants</a>
+                        </div>
+                    </div>
+                    <a href="rules.html" class="hover:text-terracotta transition">Rules</a>
+                    <a href="side-events.html" class="hover:text-terracotta transition">Side Events</a>
+                    <a href="players.html" class="hover:text-terracotta transition">Players</a>
+                    <a href="coaching.html" class="hover:text-terracotta transition">Coaching</a>
+                    <a href="contact.html" class="hover:text-terracotta transition">Contact</a>
+                    <a href="registration.html"
+                        class="bg-terracotta text-white px-5 py-2 text-[12px] font-black uppercase tracking-[0.2em] hover:bg-white hover:text-navy transition-all shadow-xl whitespace-nowrap">Register</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <!-- Language Dropdown -->
+                    <div class="language-dropdown">
+                        <button class="language-btn" id="languageBtn">
+                            <span id="currentLang" class="notranslate" translate="no">Language</span>
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                            </svg>
+                        </button>
+
+                        <div class="language-menu" id="languageMenu">
+                            <a href="#" class="notranslate" translate="no" data-lang="en">English</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ar">Arabic (العربية)</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="iw">Hebrew (עברית)</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="af">Afrikaans</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="sq">Albanian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="am">Amharic</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="hy">Armenian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="az">Azerbaijani</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="eu">Basque</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="be">Belarusian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="bn">Bengali</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="bs">Bosnian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="bg">Bulgarian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ca">Catalan</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ceb">Cebuano</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="zh-CN">Chinese (Simplified)</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="zh-TW">Chinese (Traditional)</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="co">Corsican</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="hr">Croatian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="cs">Czech</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="da">Danish</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="nl">Dutch</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="eo">Esperanto</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="et">Estonian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="fi">Finnish</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="fr">French</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="fy">Frisian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="gl">Galician</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ka">Georgian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="de">German</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="el">Greek</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="gu">Gujarati</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ht">Haitian Creole</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ha">Hausa</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="haw">Hawaiian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="hi">Hindi</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="hmn">Hmong</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="hu">Hungarian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="is">Icelandic</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ig">Igbo</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="id">Indonesian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ga">Irish</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="it">Italian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ja">Japanese</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="jv">Javanese</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="kn">Kannada</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="kk">Kazakh</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="km">Khmer</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="rw">Kinyarwanda</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ko">Korean</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ku">Kurdish</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ky">Kyrgyz</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="lo">Lao</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="lv">Latvian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="lt">Lithuanian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="lb">Luxembourgish</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="mk">Macedonian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="mg">Malagasy</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ms">Malay</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ml">Malayalam</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="mt">Maltese</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="mi">Maori</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="mr">Marathi</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="mn">Mongolian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="my">Myanmar (Burmese)</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ne">Nepali</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="no">Norwegian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ny">Nyanja (Chichewa)</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="or">Odia (Oriya)</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ps">Pashto</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="fa">Persian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="pl">Polish</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="pt">Portuguese</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="pa">Punjabi</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ro">Romanian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ru">Russian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="sm">Samoan</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="gd">Scots Gaelic</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="sr">Serbian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="st">Sesotho</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="sn">Shona</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="sd">Sindhi</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="si">Sinhala (Sinhalese)</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="sk">Slovak</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="sl">Slovenian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="so">Somali</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="es">Spanish</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="su">Sundanese</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="sw">Swahili</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="sv">Swedish</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="tl">Tagalog (Filipino)</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="tg">Tajik</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ta">Tamil</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="tt">Tatar</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="te">Telugu</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="th">Thai</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="tr">Turkish</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="tk">Turkmen</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="uk">Ukrainian</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ur">Urdu</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="ug">Uyghur</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="uz">Uzbek</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="vi">Vietnamese</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="cy">Welsh</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="xh">Xhosa</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="yi">Yiddish</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="yo">Yoruba</a>
+                            <a href="#" class="notranslate" translate="no" data-lang="zu">Zulu</a>
+                        </div>
+                    </div>
+
+                    <!-- Hamburger Button (Mobile Only) -->
+                    <button id="mobileMenuBtn"
+                        class="xl:hidden hamburger w-8 h-8 flex flex-col justify-center items-center gap-1.5 text-terracotta">
+                        <span class="w-6"></span>
+                        <span class="w-6"></span>
+                        <span class="w-6"></span>
+                    </button>
+                </div>
+            </div>
+            <div id="mobileMenu"
+                class="mobile-menu fixed top-0 right-0 h-full w-80 bg-teal shadow-2xl z-50 xl:hidden overflow-y-auto">
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-end p-6"><button id="closeMobileMenu"
+                            class="text-terracotta text-3xl font-bold">&times;</button></div>
+                    <nav class="flex flex-col px-6 space-y-4 pb-6">
+                        <a href="index.html"
+                            class="text-ivory hover:text-terracotta transition py-3 border-b border-ivory/20">Home</a>
+                        <div class="border-b border-ivory/20 pb-3">
+                            <p class="text-terracotta font-bold mb-2">Format</p>
+                            <a href="masters.html"
+                                class="block text-ivory hover:text-terracotta transition py-2 pl-4">The Main</a>
+                            <a href="intermediate.html"
+                                class="block text-ivory hover:text-terracotta transition py-2 pl-4">The Cubeless Cup</a>
+                            <a href="schedule.html"
+                                class="block text-ivory hover:text-terracotta transition py-2 pl-4">Schedule</a>
+                        </div>
+                        <div class="border-b border-ivory/20 pb-3">
+                            <p class="text-terracotta font-bold mb-2">Location</p>
+                            <a href="#big-dune-camp"
+                                class="block text-ivory hover:text-terracotta transition py-2 pl-4">Big Dune Camp</a>
+                            <a href="#nuweiba"
+                                class="block text-ivory hover:text-terracotta transition py-2 pl-4">Nuweiba</a>
+                            <a href="dining.html"
+                                class="block text-ivory hover:text-terracotta transition py-2 pl-4">Local
+                                Restaurants</a>
+                        </div>
+                        <a href="rules.html"
+                            class="text-ivory hover:text-terracotta transition py-3 border-b border-ivory/20">Rules</a>
+                        <a href="side-events.html"
+                            class="text-ivory hover:text-terracotta transition py-3 border-b border-ivory/20">Side
+                            Events</a>
+                        <a href="players.html"
+                            class="text-ivory hover:text-terracotta transition py-3 border-b border-ivory/20">Players</a>
+                        <a href="coaching.html"
+                            class="text-ivory hover:text-terracotta transition py-3 border-b border-ivory/20">Coaching</a>
+                        <a href="contact.html"
+                            class="text-ivory hover:text-terracotta transition py-3 border-b border-ivory/20">Contact</a>
+                        <a href="registration.html"
+                            class="bg-terracotta text-white px-6 py-3 text-center font-black uppercase tracking-wider hover:bg-sunset transition mt-4">Register</a>
+                    </nav>
+                </div>
+            </div>
+            <div id="mobileMenuOverlay" class="hidden fixed inset-0 bg-black/50 z-40 xl:hidden"></div>
+        </header>
+
+        <!-- Hero -->
+        <section class="relative h-[250px] sm:h-[300px]">
+            <div class="absolute inset-0 bg-cover bg-center"
+                style="background-image: url('/assets/images/banner%202_11zon.jpg');"></div>
+            <div class="relative h-full flex items-center text-center justify-center px-4 sm:px-6">
+                <div class="bg-charcoal/80 px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 rounded-lg shadow-xl">
+                    <div class="relative">
+                        <h1
+                            class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold italic mb-2 sm:mb-4 text-white drop-shadow-[3px_3px_10px_rgba(0,0,0,1)]">
+                            Discover <span class="text-sunset">Nuweiba</span></h1>
+                        <p
+                            class="text-base sm:text-xl md:text-2xl text-white font-light drop-shadow-[2px_2px_8px_rgba(0,0,0,0.9)]">
+                            Where the Desert Meets the Red Sea</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main -->
+        <section class="py-12 sm:py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
+                    <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-serif italic text-navy mb-4 sm:mb-6">
+                        The Setting</h2>
+                    <div class="w-16 sm:w-20 h-1 bg-sunset mx-auto mb-6 sm:mb-8"></div>
+                    <p class="text-xl sm:text-2xl font-serif italic text-charcoal leading-relaxed mb-6 sm:mb-8">Where
+                        Stillness, Story, and Strategy Meet</p>
+                </div>
+                <div class="max-w-5xl mx-auto prose prose-lg">
+                    <p class="text-base sm:text-lg text-charcoal leading-relaxed mb-4 sm:mb-6">
+                        On the eastern edge of the Sinai Peninsula lies Nuweiba—a place where mountains meet the Red
+                        Sea.
+                        Unlike the resorts of Sharm or the bustle of Dahab, Nuweiba remains understated and quietly
+                        powerful.
+                        It is a meeting point of desert and sea, history and presence, patience and play.
+                    </p>
+                    <p class="text-base sm:text-lg text-charcoal leading-relaxed mb-4 sm:mb-6">
+                        Dramatic granite mountains frame a wide coastal plain, glowing red and gold at sunrise. Coral
+                        reefs
+                        begin meters from shore, where turtles, rays, and dolphins are frequent visitors. Life here
+                        moves at
+                        a pace dictated by wind, tide, and temperature.
+                    </p>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 my-12 sm:my-16">
+                    <div class="relative h-60 sm:h-80 overflow-hidden rounded-xl shadow-xl">
+                        <img src="/assets/images/big-dune-evening-scene.jpg" alt="Red Mountain Nuweiba"
+                            class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="relative h-60 sm:h-80 overflow-hidden rounded-xl shadow-xl">
+                        <img src="/assets/images/mountain coast 3.jpg" alt="Sunset"
+                            class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    </div>
+                </div>
+                <div class="max-w-5xl mx-auto prose prose-lg">
+                    <h3 class="text-xl sm:text-2xl font-serif italic text-navy mb-3 sm:mb-4 mt-8 sm:mt-12">Tawla: The
+                        Game of the Region</h3>
+                    <p class="text-base sm:text-lg text-charcoal leading-relaxed mb-4 sm:mb-6">
+                        Backgammon, known locally as <em>tawla</em>, has been played across this region for thousands of
+                        years.
+                        In cafés throughout Egypt and the Middle East, the clack of dice on wood is as familiar as the
+                        call to prayer.
+                        Tawla is a social ritual, a contest of foresight and nerve, a quiet duel played in public.
+                    </p>
+                    <p class="text-base sm:text-lg text-charcoal leading-relaxed mb-4 sm:mb-6">
+                        Like the landscape itself, the game balances chance and control. Dice introduce uncertainty;
+                        strategy determines
+                        outcome. Victory comes not from force, but from timing, restraint, and reading both board and
+                        opponent.
+                    </p>
+                    <p class="text-base sm:text-lg text-charcoal leading-relaxed mb-4 sm:mb-6">
+                        In Nuweiba, tawla feels particularly at home. The game mirrors the environment: long stretches
+                        of calm
+                        punctuated by sudden shifts; patience rewarded, haste punished. Played slowly, often in silence
+                        broken
+                        only by the sea and the dice, it becomes almost meditative.
+                    </p>
+                </div>
+                <div class="max-w-4xl mx-auto my-12 sm:my-16">
+                    <div class="relative h-64 sm:h-96 overflow-hidden rounded-xl shadow-2xl">
+                        <img src="/assets/images/Sunset_cleanup.jpg" alt="Backgammon at sunset"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="max-w-5xl mx-auto prose prose-lg">
+                    <h3 class="text-xl sm:text-2xl font-serif italic text-navy mb-3 sm:mb-4 mt-8 sm:mt-12">A Place of
+                        Alignment</h3>
+                    <p class="text-base sm:text-lg text-charcoal leading-relaxed mb-4 sm:mb-6">
+                        Nuweiba reveals itself gradually to those willing to sit still. Days are marked by swims over
+                        coral gardens,
+                        simple meals on the sand, and conversations without agenda. Nights bring vast skies and a sense
+                        of scale that
+                        recalibrates perspective.
+                    </p>
+                    <p class="text-base sm:text-lg text-charcoal leading-relaxed mb-6 sm:mb-8">
+                        Whether contemplating ancient stories, watching light shift across the Gulf of Aqaba, or
+                        considering your next
+                        move over a backgammon board, the lesson is the same: you play the hand you're given, but how
+                        you play it matters.
+                    </p>
+                </div>
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-20">
+                    <div class="text-center">
+                        <div class="text-4xl sm:text-5xl mb-3 sm:mb-4">☀️</div>
+                        <h3 class="text-lg sm:text-xl font-bold text-navy mb-2 sm:mb-3">Perfect Weather</h3>
+                        <p class="text-sm sm:text-base text-grey">Endless sunshine and warm temperatures year-round.
+                            November offers ideal conditions with comfortable days and cool evenings.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl sm:text-5xl mb-3 sm:mb-4">🌊</div>
+                        <h3 class="text-lg sm:text-xl font-bold text-navy mb-2 sm:mb-3">Crystal Waters</h3>
+                        <p class="text-sm sm:text-base text-grey">The Red Sea's pristine turquoise waters are just steps
+                            away. And occasional dolphins make every swim memorable.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl sm:text-5xl mb-3 sm:mb-4">🏔️</div>
+                        <h3 class="text-lg sm:text-xl font-bold text-navy mb-2 sm:mb-3">Mountain Backdrop</h3>
+                        <p class="text-sm sm:text-base text-grey">Dramatic granite peaks frame the coastline, glowing
+                            red and gold at sunrise. The landscape feels both ancient and eternal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Big Dune Camp -->
+        <section id="big-dune-camp" class="py-12 sm:py-16 md:py-20 bg-ivory">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
+                    <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-serif italic text-navy mb-4 sm:mb-6">
+                        Big Dune Camp</h2>
+                    <div class="w-16 sm:w-20 h-1 bg-sunset mx-auto mb-6 sm:mb-8"></div>
+                    <p class="text-base sm:text-xl text-charcoal leading-relaxed">
+                        Your tournament home. Big Dune Camp is a notable beach camp nestled directly between the
+                        mountains of Sinai and the Red Sea along the Gulf of Aqaba in Nuweiba (the Duna / The Dune
+                        area). Known for its wide stretch of white sandy beach, proximity to Sinai's iconic desert sand
+                        dunes, and authentic Bedouin hospitality.
+                    </p>
+                </div>
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+                    <div class="relative h-60 sm:h-72 overflow-hidden rounded-xl shadow-xl">
+                        <img src="/assets/images/big-dune-camp-1.jpg" alt="Relaxing sofa area overlooking the Red Sea"
+                            class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-3 sm:p-4">
+                            <p class="text-white text-xs sm:text-sm">Camp management keeps the place clean and serves
+                                delicious local dishes.</p>
+                        </div>
+                    </div>
+                    <div class="relative h-60 sm:h-72 overflow-hidden rounded-xl shadow-xl">
+                        <img src="/assets/images/big-dune-camp-2.jpg" alt="Camel ride through the Sinai desert"
+                            class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-3 sm:p-4">
+                            <p class="text-white text-xs sm:text-sm">Explore the desert and mountains on a camel safari
+                                — just steps from the camp.</p>
+                        </div>
+                    </div>
+                    <div class="relative h-60 sm:h-72 overflow-hidden rounded-xl shadow-xl">
+                        <img src="/assets/images/big-dune-camp-3.jpg" alt="Comfortable luxury interior of a camp room"
+                            class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-3 sm:p-4">
+                            <p class="text-white text-xs sm:text-sm">Comfortable and well-kept camp rooms — a relaxing
+                                retreat after a day of play.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-xl mb-8 sm:mb-12">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-navy mb-4 sm:mb-6 text-center">Tournament Location
+                    </h3>
+                    <div class="relative flex justify-center mb-4 sm:mb-6">
+                        <div class="relative w-full max-w-4xl h-64 sm:h-[30rem] overflow-hidden rounded-xl shadow-2xl">
+                            <img src="/assets/images/2 Storey BG Seaview.jpg" alt="Tournament Playing Area"
+                                class="w-full h-full object-cover" />
+                            <div class="absolute bottom-0 inset-x-0 bg-black/70 p-3 sm:p-4 text-center">
+                                <p class="text-white text-xs sm:text-base">There are 2 large areas at the beach side to
+                                    play BG. Beautiful beach & sea view.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-xl">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-navy mb-4 sm:mb-6 text-center">Your Accommodation
+                    </h3>
+                    <div class="max-w-4xl mx-auto mb-8 sm:mb-12">
+                        <p class="text-base sm:text-lg text-charcoal leading-relaxed text-center">
+                            Accommodation in Nuweiba is refreshingly simple yet deeply special. The rooms all directly
+                            on the beach, so the Red Sea is never out of sight or sound. Rooms are private bungalows or
+                            chalets, each with air conditioning for comfort during the warmer months, but the real
+                            luxury is waking up to the sea itself. You open your door straight onto sand, palm trees,
+                            and clear turquoise water, with the mountains of Sinai rising behind you. There is no
+                            concrete skyline, no rush, and no noise beyond the wind, the waves, and the occasional call
+                            to prayer drifting across the bay. It is the kind of place where time slows down, mornings
+                            start with barefoot walks along the shore, and evenings end under star-filled skies.
+                        </p>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                        <div class="relative h-60 sm:h-80 overflow-hidden rounded-xl shadow-xl">
+                            <img src="/assets/images/inside-big-dune-camp-2 bed.jpeg" alt="Sea View Chalet"
+                                class="w-full h-full object-cover ">
+                        </div>
+                        <div class="relative h-60 sm:h-80 overflow-hidden rounded-xl shadow-xl">
+                            <img src="/assets/images/big-dune-outside-camp-pic.jpg" alt="Beachfront Chalet"
+                                class="w-full h-full object-cover ">
+                        </div>
+                    </div>
+                    <ul class="space-y-3 sm:space-y-4 max-w-3xl mx-auto">
+                        <li class="flex items-start">
+                            <span class="text-sunset text-xl sm:text-2xl mr-2 sm:mr-3">✓</span>
+                            <div class="text-sm sm:text-base"><strong class="text-navy">Traditional Huts
+                                    (Husha):</strong> Simple, bamboo or palm-frond huts right on the sand with shared
+                                bathroom facilities — ideal for budget travelers and backpackers.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sunset text-xl sm:text-2xl mr-2 sm:mr-3">✓</span>
+                            <div class="text-sm sm:text-base"><strong class="text-navy">Private Bungalows &
+                                    Chalets:</strong> Air-conditioned brick or wooden chalets with private bathrooms and
+                                sea or mountain view balconies.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sunset text-xl sm:text-2xl mr-2 sm:mr-3">✓</span>
+                            <div class="text-sm sm:text-base"><strong class="text-navy">Bedouin Dining &
+                                    Facilities:</strong> Open-air Bedouin restaurant serving local dishes & fresh
+                                seafood, 24/7 electricity in upgraded units, basic Wi-Fi, and free private parking.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sunset text-xl sm:text-2xl mr-2 sm:mr-3">✓</span>
+                            <div class="text-sm sm:text-base"><strong class="text-navy">Beach & Leisure:</strong> Wide
+                                private beach with shaded sitting, hammocks, bean bags, sun loungers, and easy
+                                shore-entry snorkeling into clear Red Sea coral reefs.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sunset text-xl sm:text-2xl mr-2 sm:mr-3">✓</span>
+                            <div class="text-sm sm:text-base"><strong class="text-navy">Excursions & Nights:</strong>
+                                Evening Bedouin bonfires & stargazing, plus day trips to Colored Canyon, White Canyon,
+                                Mt. Sinai & St. Catherine's Monastery.</div>
+                        </li>
+                    </ul>
+                    <div class="flex items-center justify-center mt-6 sm:mt-8">
+                        <button id="videoToggle"
+                            class="bg-[#FF0000] text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 font-bold uppercase tracking-wider text-xs sm:text-sm hover:bg-sunset transition shadow-xl rounded-lg">
+                            Accommodation Videos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accommodation -->
+        <section class="py-8 sm:py-12 mb-[-2rem] bg-ivory">
+            <div class="container mx-auto px-4 sm:px-6 text-center">
+                <div id="videosContainer" class="hidden mt-2 max-w-6xl mx-auto">
+                    <h3 class="text-2xl sm:text-3xl font-serif italic text-navy mb-6 sm:mb-8">Accommodation Videos</h3>
+                    <div class="grid md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+                        <div class="bg-white rounded-xl overflow-hidden shadow-xl">
+                            <video class="w-full h-48 sm:h-64 bg-black" controls>
+                                <source src="/assets/videos/video-1.mp4" type="video/mp4">
+                            </video>
+                            <div class="p-3 sm:p-4">
+                                <h4 class="font-bold text-navy text-sm sm:text-base">Video 1</h4>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-xl overflow-hidden shadow-xl">
+                            <video class="w-full h-48 sm:h-64 bg-black" controls>
+                                <source src="/assets/videos/video-2.mp4" type="video/mp4">
+                            </video>
+                            <div class="p-3 sm:p-4">
+                                <h4 class="font-bold text-navy text-sm sm:text-base">Video 2</h4>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-xl overflow-hidden shadow-xl">
+                            <video class="w-full h-48 sm:h-64 object-cover bg-black" controls>
+                                <source src="/assets/videos/video-3.mov" type="video/mp4">
+                            </video>
+                            <div class="p-3 sm:p-4">
+                                <h4 class="font-bold text-navy text-sm sm:text-base">Video 3</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Food -->
+        <section class="py-12 sm:py-16 md:py-20 bg-white border-2 border-gold">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
+                    <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-serif italic text-navy mb-4 sm:mb-6">
+                        Food & Relaxation</h2>
+                    <div class="w-16 sm:w-20 h-1 bg-sunset mx-auto mb-6 sm:mb-8"></div>
+                    <p class="text-base sm:text-xl text-charcoal leading-relaxed">
+                        Between tournament matches, unwind in paradise. Fresh seafood, traditional Egyptian cuisine, and
+                        international favorites. Days are for backgammon and beach. Evenings are for sunset views and
+                        conversations beneath the stars.
+                    </p>
+                </div>
+                <div class="text-center mb-8 sm:mb-12">
+                    <a href="dining.html"
+                        class="inline-block border-2 border-gold text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 font-bold uppercase tracking-wider hover:bg-ivory hover:text-navy text-xs sm:text-sm bg-teal transition shadow-xl rounded-lg">
+                        🍽️ Click To View Local Dining Options
+                    </a>
+                </div>
+                <div class="max-w-4xl mx-auto mb-8 sm:mb-12">
+                    <div class="relative h-60 sm:h-80 overflow-hidden rounded-xl shadow-2xl">
+                        <img src="/assets/images/Tasty Tuma after Fishing trip.jpg" alt="Fresh Tuna Meal"
+                            class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-3 sm:p-4">
+                            <p class="text-white text-base sm:text-lg">Fresh-caught tuna — taste the Red Sea</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Nuweiba -->
+        <section class="py-12 sm:py-16 md:py-20 bg-ivory border-2 border-gold">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
+                    <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-serif italic text-navy mb-4 sm:mb-6">
+                        Experience Nuweiba</h2>
+                    <div class="w-16 sm:w-20 h-1 bg-sunset mx-auto mb-6 sm:mb-8"></div>
+                    <p class="text-base sm:text-xl text-charcoal leading-relaxed">Explore the stunning underwater world
+                        and beachfront paradise</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-xl">
+                            <div class="aspect-video bg-navy/5">
+                                <video class="w-full h-full object-cover" controls>
+                                    <source src="/assets/videos/swimming with a dolphin.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl shadow-lg p-3 sm:p-4 text-center border-2 border-gold">
+                            <h4 class="font-bold text-navy text-base sm:text-lg">Dolphins</h4>
+                            <p class="text-grey text-sm sm:text-base">There are plenty of dolphins in the Red Sea</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-xl">
+                            <div class="aspect-video bg-black flex items-center justify-center">
+                                <video class="h-full max-w-full object-contain" controls>
+                                    <source src="/assets/videos/The Beach 2  (1).mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl shadow-lg p-3 sm:p-4 text-center border-2 border-gold">
+                            <h4 class="font-bold text-navy text-base sm:text-lg">Beachfront Paradise</h4>
+                            <p class="text-charcoal text-sm sm:text-base">Your tournament home awaits</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="bg-navy py-12 sm:py-16 md:py-20 text-center">
+            <div class="container mx-auto px-4 sm:px-6">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif italic text-sunset mb-4 sm:mb-6">Ready to
+                    Experience Paradise?</h2>
+                <p class="text-ivory text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto">
+                    Secure your spot at South Sinai's premier backgammon tournament. Sea view accommodation and all
+                    meals included.
+                </p>
+                <a href="registration.html"
+                    class="inline-block bg-sunset text-white px-8 sm:px-10 md:px-12 py-4 sm:py-5 font-bold uppercase tracking-wider text-xs sm:text-sm hover:bg-terracotta transition shadow-2xl rounded-lg">
+                    Register Now
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-teal text-ivory py-6 sm:py-8 border-t border-terracotta/20">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8">
+                <div class="font-serif text-xl sm:text-[30px] italic text-terracotta text-center md:text-left">South
+                    Sinai Backgammon</div>
+                <div
+                    class="flex flex-wrap justify-center gap-6 sm:gap-10 text-xs sm:text-[16px] uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold">
+                    <a href="contact.html" class="hover:text-terracotta transition">Contact</a>
+                    <a href="rules.html" class="hover:text-terracotta transition">Rules</a>
+                    <a href="schedule.html" class="hover:text-terracotta transition">Schedule</a>
+                </div>
+                <p class="text-xs sm:text-[14px] uppercase tracking-widest text-white italic text-center md:text-right">
+                    &copy; 2026 South Sinai Tournament</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        const formatDropdown = document.getElementById('formatDropdown'); const formatBtn = document.getElementById('formatBtn'); const formatMenu = document.getElementById('formatMenu'); const formatArrow = document.getElementById('formatArrow'); let isOpen = false; formatBtn.addEventListener('click', function (e) { e.stopPropagation(); isOpen = !isOpen; if (isOpen) { formatMenu.classList.remove('hidden'); formatArrow.style.transform = 'rotate(180deg)'; } else { formatMenu.classList.add('hidden'); formatArrow.style.transform = 'rotate(0deg)'; } }); formatDropdown.addEventListener('mouseenter', function () { if (!isOpen) { formatMenu.classList.remove('hidden'); formatArrow.style.transform = 'rotate(180deg)'; } }); formatDropdown.addEventListener('mouseleave', function () { if (!isOpen) { formatMenu.classList.add('hidden'); formatArrow.style.transform = 'rotate(0deg)'; } }); document.addEventListener('click', function (e) { if (!formatDropdown.contains(e.target)) { isOpen = false; formatMenu.classList.add('hidden'); formatArrow.style.transform = 'rotate(0deg)'; } });
+        const locationDropdown = document.getElementById('locationDropdown'); const locationBtn = document.getElementById('locationBtn'); const locationMenu = document.getElementById('locationMenu'); const locationArrow = document.getElementById('locationArrow'); let locationOpen = false; locationBtn.addEventListener('click', function (e) { e.stopPropagation(); locationOpen = !locationOpen; if (locationOpen) { locationMenu.classList.remove('hidden'); locationArrow.style.transform = 'rotate(180deg)'; } else { locationMenu.classList.add('hidden'); locationArrow.style.transform = 'rotate(0deg)'; } }); locationDropdown.addEventListener('mouseenter', function () { if (!locationOpen) { locationMenu.classList.remove('hidden'); locationArrow.style.transform = 'rotate(180deg)'; } }); locationDropdown.addEventListener('mouseleave', function () { if (!locationOpen) { locationMenu.classList.add('hidden'); locationArrow.style.transform = 'rotate(0deg)'; } }); document.addEventListener('click', function (e) { if (!locationDropdown.contains(e.target)) { locationOpen = false; locationMenu.classList.add('hidden'); locationArrow.style.transform = 'rotate(0deg)'; } });
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn'); const mobileMenu = document.getElementById('mobileMenu'); const closeMobileMenu = document.getElementById('closeMobileMenu'); const mobileMenuOverlay = document.getElementById('mobileMenuOverlay'); function openMobileMenu() { mobileMenu.classList.add('active'); mobileMenuOverlay.classList.remove('hidden'); mobileMenuBtn.classList.add('active'); document.body.style.overflow = 'hidden'; } function closeMobileMenuFunc() { mobileMenu.classList.remove('active'); mobileMenuOverlay.classList.add('hidden'); mobileMenuBtn.classList.remove('active'); document.body.style.overflow = ''; } mobileMenuBtn.addEventListener('click', function () { if (mobileMenu.classList.contains('active')) { closeMobileMenuFunc(); } else { openMobileMenu(); } }); closeMobileMenu.addEventListener('click', closeMobileMenuFunc); mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc); const mobileMenuLinks = mobileMenu.querySelectorAll('a'); mobileMenuLinks.forEach(link => { link.addEventListener('click', closeMobileMenuFunc); });
+        document.getElementById('videoToggle').addEventListener('click', function () { const container = document.getElementById('videosContainer'); container.classList.toggle('hidden'); if (container.classList.contains('hidden')) { this.innerHTML = 'Click To View Accommodation Videos'; } else { this.innerHTML = '✕ Hide Videos'; } });
+    </script>
+
+    <script>
+        const languageBtn = document.getElementById('languageBtn');
+        const languageMenu = document.getElementById('languageMenu');
+        const currentLang = document.getElementById('currentLang');
+        const languageLinks = languageMenu.querySelectorAll('a');
+        const savedLang = localStorage.getItem('selectedLanguage');
+        const savedLangName = localStorage.getItem('selectedLanguageName');
+
+        languageBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            languageBtn.classList.toggle('active');
+            languageMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!languageBtn.contains(e.target) && !languageMenu.contains(e.target)) {
+                languageBtn.classList.remove('active');
+                languageMenu.classList.remove('active');
+            }
+        });
+
+        languageLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                const langName = this.textContent;
+                localStorage.setItem('selectedLanguage', lang);
+                localStorage.setItem('selectedLanguageName', langName);
+                localStorage.setItem('userChoseLang', 'true');
+                currentLang.textContent = langName;
+                languageLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                languageBtn.classList.remove('active');
+                languageMenu.classList.remove('active');
+                googleTranslateChange(lang);
+            });
+        });
+
+        function googleTranslateChange(lang) {
+            const check = setInterval(function () {
+                const select = document.querySelector('.goog-te-combo');
+                if (select) {
+                    clearInterval(check);
+                    select.value = lang;
+                    select.dispatchEvent(new Event('change'));
+                }
+            }, 100);
+            setTimeout(function () { clearInterval(check); }, 5000);
+        }
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                autoDisplay: false,
+                gaTrack: false
+            }, 'google_translate_element');
+
+            setTimeout(function () {
+
+                if (localStorage.getItem('userChoseLang') === 'true' && savedLang && savedLang !== 'en') {
+                    googleTranslateChange(savedLang);
+                    if (savedLangName) {
+                        currentLang.textContent = savedLangName;
+                        languageLinks.forEach(link => {
+                            if (link.getAttribute('data-lang') === savedLang) link.classList.add('active');
+                        });
+                    }
+                    return;
+                }
+
+                fetch('https://ipapi.co/json/')
+                    .then(function (res) { return res.json(); })
+                    .then(function (data) {
+                        const countryToLang = {
+                            'AE': 'ar', 'SA': 'ar', 'QA': 'ar', 'KW': 'ar', 'BH': 'ar',
+                            'EG': 'ar', 'JO': 'ar', 'LB': 'ar', 'IQ': 'ar', 'SY': 'ar',
+                            'OM': 'ar', 'YE': 'ar', 'LY': 'ar', 'TN': 'ar', 'DZ': 'ar',
+                            'MA': 'ar', 'SD': 'ar',
+                            'IL': 'iw',
+                            'RU': 'ru', 'FR': 'fr', 'DE': 'de', 'ES': 'es', 'PT': 'pt',
+                            'IT': 'it', 'NL': 'nl', 'PL': 'pl', 'TR': 'tr', 'IR': 'fa',
+                            'CN': 'zh-CN', 'TW': 'zh-TW', 'JP': 'ja', 'KR': 'ko',
+                            'IN': 'hi', 'PK': 'ur', 'BD': 'bn', 'ID': 'id', 'MY': 'ms',
+                            'TH': 'th', 'VN': 'vi', 'GR': 'el', 'UA': 'uk', 'RO': 'ro',
+                            'HU': 'hu', 'CZ': 'cs', 'SK': 'sk', 'HR': 'hr', 'RS': 'sr',
+                            'BG': 'bg', 'FI': 'fi', 'SE': 'sv', 'NO': 'no', 'DK': 'da',
+                        };
+
+                        const detectedLang = countryToLang[data.country_code];
+                        if (detectedLang) {
+                            const matchingLink = languageMenu.querySelector('[data-lang="' + detectedLang + '"]');
+                            if (matchingLink) {
+                                currentLang.textContent = matchingLink.textContent;
+                                languageLinks.forEach(l => l.classList.remove('active'));
+                                matchingLink.classList.add('active');
+                            }
+                            googleTranslateChange(detectedLang);
+                        }
+                    })
+                    .catch(function () { });
+            }, 1500);
+        }
+
+        window.addEventListener('load', function () {
+            const style = document.createElement('style');
+            style.innerHTML = '.goog-te-banner-frame.skiptranslate{display:none!important}body{top:0!important}';
+            document.head.appendChild(style);
+        });
+    </script>
+
+    <!-- Load Google Translate -->
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Hidden Google Translate Element -->
+    <div id="google_translate_element" style="display:none;"></div>
+
+
+</body>
+
+</html>
